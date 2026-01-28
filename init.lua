@@ -10,6 +10,7 @@ vim.opt.cursorline = true
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>s", ":source %<CR>")
+vim.keymap.set("n", "<leader>t", ":terminal %<CR>")
   
          
 -- Bootstrap lazy.nvim
@@ -37,32 +38,5 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local opts = {}
--- return {
---     "windwp/nvim-ts-autotag",
---     event = "LazyFile",
---     opts = {
---        'html',
---        'jsx'
---     }
--- }
-
 require("lazy").setup("plugins")
--- Default options:
--- require('nvim-ts-autotag').setup({
---   opts = {
---     -- Defaults
---     enable_close = true, -- Auto close tags
---     enable_rename = true, -- Auto rename pairs of tags
---     enable_close_on_slash = false -- Auto close on trailing </
---   },
---   -- Also override individual filetype configs, these take priority.
---   -- Empty by default, useful if one of the "opts" global settings
---   -- doesn't work well in a specific filetype
---   per_filetype = {
---     ["html"] = {
---       enable_close = false
---     }
---   }
--- })
 
