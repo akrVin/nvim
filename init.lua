@@ -11,8 +11,9 @@ vim.opt.cursorline = true
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>s", ":source %<CR>")
 vim.keymap.set("n", "<leader>t", ":terminal %<CR>")
-  
-         
+vim.keymap.set('i', 'jj', '<Esc>', { silent = true })
+vim.keymap.set({'n', 'v'}, '<leader>j', '<Esc>')
+
 -- Bootstrap lazy.nvim
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

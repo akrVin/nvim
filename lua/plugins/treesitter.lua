@@ -27,8 +27,8 @@ return {
     },
     config = function()
         -- require vim-treesitter'.install ({ 'lua', 'javascript', 'html', 'css' })--:wait(30000)
-        vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-        vim.wo[0][0].foldmethod = 'expr'
+        -- vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        -- vim.wo[0][0].foldmethod = 'expr'
         vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end
 }
