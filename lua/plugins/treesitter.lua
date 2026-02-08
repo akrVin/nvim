@@ -4,26 +4,27 @@ return {
 	build = ":TSUpdate",
 	opts = {
 		-- LazyVim config for treesitter
+        auto_install = true,
 		indent = { enable = true }, ---@type lazyvim.TSFeat
 		highlight = { enable = true }, ---@type lazyvim.TSFeat
 		folds = { enable = true }, ---@type lazyvim.TSFeat
-		ensure_installed = {
-			"html",
-			"javascript",
-			"jsdoc",
-			"json",
-			"jsonc",
-			"lua",
-			"luadoc",
-			"luap",
-			"markdown",
-			"markdown_inline",
-			"tsx",
-			"typescript",
-			"vim",
-			"vimdoc",
-			"xml",
-		},
+		--ensure_installed = {
+		--	"html",
+		--	"javascript",
+		--	"jsdoc",
+		--	"json",
+		--	"jsonc",
+		--	"lua",
+		--	"luadoc",
+		--	"luap",
+		--	"markdown",
+		--	"markdown_inline",
+		--	"tsx",
+		--	"typescript",
+		--	"vim",
+		--	"vimdoc",
+		--	"xml",
+		--},
 	},
 	config = function()
 		-- require vim-treesitter'.install ({ 'lua', 'javascript', 'html', 'css' })--:wait(30000)
