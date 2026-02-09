@@ -7,6 +7,7 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set smarttab")
 vim.cmd("set autoindent")
 vim.opt.cursorline = true
+vim.cmd("set clipboard=unnamedplus")
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>s", ":source %<CR>")
