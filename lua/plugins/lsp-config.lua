@@ -3,15 +3,13 @@ return {
 	opts = {},
 	config = function()
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls" },
+			-- ensure_installed = { "lua_ls" },
+			automatic_enable = true,
 		})
 	end,
 	dependencies = {
 		{
 			"mason-org/mason.nvim",
-			config = function()
-				require("mason").setup()
-			end,
 			opts = {
 				ui = {
 					icons = {
@@ -44,78 +42,27 @@ return {
 						},
 					},
 				})
-				--                vim.lsp.config('ts_ls',{
-				--                    init.options = {
-				--                        hostInfo = 'neovim'
-				--                    },
-				--                    cmd = {
-				--                        'typescript-language-server', '--stdio'
-				--                    },
-				--                    filetypes = {
-				--                        "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx"
-				--                    },
-				--                    root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
-				--                    settings = {
-				--                        Lua = {
-				--                            codeLens = {
-				--                                enable = true
-				--                            },
-				--                            hint = {
-				--                                enable = true,
-				--                                semicolon = "Disable"
-				--                            },
-				--                            runtime = {
-				--                                version = 'LuaJIT',
-				--                            }
-				--                        }
-				--                    }
-				--                })
-				--                vim.lsp.config['lua_ls'] = {
-				--                    -- Command and arguments to start the server.
-				--                    cmd = { 'lua-language-server' },
-				--                    -- Filetypes to automatically attach to.
-				--                    filetypes = { 'lua' },
-				--
-				--                    -- Sets the "root directory" to the parent directory of the file in the
-				--                    -- current buffer that contains either a ".luarc.json" or a
-				--                    -- ".luarc.jsonc" file. Files that share a root directory will reuse
-				--                    -- the connection to the same LSP server.
-				--                    -- Nested lists indicate equal priority, see |vim.lsp.Config|.
-				--                    root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
-				--
-				--                    -- Specific settings to send to the server. The schema for this is
-				--                    -- defined by the server. For example the schema for lua-language-server
-				--                    -- can be found here https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
-				--                    settings = {
-				--                        Lua = {
-				--                            codeLens = {
-				--                                enable = true
-				--                            },
-				--                            hint = {
-				--                                enable = true,
-				--                                semicolon = "Disable"
-				--                            },
-				--                            runtime = {
-				--                                version = 'LuaJIT',
-				--                            }
-				--                        }
-				--                    }
-				--                }
-				--                vim.lsp.config['ts_ls'] = {
-				--                    -- Command and arguments to start the server.
-				--                    cmd = {
-				--                        'typescript-language-server", "--stdio"
-				--                    },
-				--                    -- Filetypes to automatically attach to.
-				--                    filetypes = {
-				--                        "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx"
-				--                    },
-				--                    init.options = {
-				--                        hostInfo = 'neovim'
-				--                    }
-				--                },
-				-- vim.lsp.config['ts_ls']
-				-- :h vim.lsp
+				vim.lsp.config("ts_ls", {
+					on_attach = function(client, bufnr)
+						require("twoslash-queries").attach(client, bufnr)
+					end,
+					filetypes = {
+                        "typescript",
+                        "typescriptreact",
+                        "typescript.tsx",
+                        "javascript",
+                        "javascriptreact"
+                    },
+					cmd = {
+                        "typescript-language-server",
+                        "--stdio"
+                    },
+					settings = {
+						implicitProjectConfiguration = {
+							checkJs = true,
+						},
+					},
+				})
 				vim.lsp.enable("ts_ls")
 				vim.lsp.enable("lua_ls")
 				vim.api.nvim_create_autocmd("LspAttach", {
