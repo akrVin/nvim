@@ -15,5 +15,7 @@ set("n", "<leader>rn", vim.lsp.buf.rename, {})
 set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 set("n", "gr", vim.lsp.buf.references, {})
 set({ "n", "t" }, "<c-t>", function()
-  Snacks.terminal(nil, { cwd = LazyVim.root() })
-end, { desc = "Terminal (Root Dir)" })
+	Snacks.terminal(nil, { cwd = LazyVim.root() })
+end, {
+	desc = "Terminal (Root Dir)",
+})

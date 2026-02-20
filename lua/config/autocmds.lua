@@ -6,10 +6,11 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
-vim.cmd("set relativenumber")
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
-vim.cmd("set smarttab")
-vim.cmd("set autoindent")
+local c = vim.cmd
+c("set relativenumber")
+c("set expandtab")
+c("set tabstop=4")
+c("set softtabstop=4")
+c("set shiftwidth=4")
+c("set smarttab")
+c("set autoindent")
