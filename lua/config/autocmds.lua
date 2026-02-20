@@ -7,7 +7,6 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 local c = vim.cmd
-c("set relativenumber")
 c("set expandtab")
 c("set tabstop=4")
 c("set softtabstop=4")
